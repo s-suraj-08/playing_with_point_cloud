@@ -67,7 +67,7 @@ def main():
                                                                 args.point_removal_density)
     
     print("Visualize the result")
-    # util.visualize([mesh])
+    util.visualize([mesh])
 
     util.write_mesh(args.savepath, mesh)
 
