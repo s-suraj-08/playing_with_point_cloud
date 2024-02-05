@@ -9,6 +9,7 @@ def normal_estimation(pcd):
     pcd: o3d.geometry.PointCloud
     The function takes in a point cloud and estimates the normal for it. 
     (WARNING: overwrites exisiting normals if any)
+    returns a point cloud with normals
     '''
     pcd.normals = o3d.utility.Vector3dVector(np.zeros((1, 3)))      # Invalidate existing normals
     pcd.estimate_normals()
@@ -22,6 +23,7 @@ def perform_poisson_reconstruction(pcd, depth_for_poisson_reconstruction=9, poin
     depth_for_poisson_reconstruction: depth of the tree
     point_removal_density: Desnity threshold to remove vertices
     Performs poisson surface reconstruction
+    returns a reconstructed mesh
     '''
     pcd_with_normal = normal_estimation(pcd)
 

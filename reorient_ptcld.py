@@ -6,6 +6,9 @@ RANSAC_N=3
 NUM_ITERATIONS=100
 
 def gram_schmidt(plane_normal):
+    '''
+    Returns a set of 3 orthonormal vectors given a single vector
+    '''
     vectors = [plane_normal, np.random.rand(3), np.random.rand(3)]
     basis = []
     for v in vectors:
@@ -71,6 +74,7 @@ def verify(pcd):
         print(f"Verification passed for plane normal: {plane_normal}")
     else:
         print(f"Verification FAILED for plane normal: {plane_normal}")
+        # This can happen due to wrong plane detected as the ground plane for Ex: craddle
 
 
 def reorient(pcd, distance_threshold_for_plane=0.02):
